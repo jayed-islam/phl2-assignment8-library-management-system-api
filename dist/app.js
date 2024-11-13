@@ -18,7 +18,6 @@ app.get("/", (req, res) => {
     });
 });
 app.use("/api", routes_1.default);
-app.use(globalErrorHandler_1.default);
 app.use((req, res, next) => {
     res.status(http_status_1.default.NOT_FOUND).json({
         success: false,
@@ -29,4 +28,5 @@ app.use((req, res, next) => {
         },
     });
 });
+app.use(globalErrorHandler_1.default);
 exports.default = app;
