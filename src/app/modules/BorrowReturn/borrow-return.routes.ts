@@ -3,10 +3,13 @@ import { borrowController } from "./borrow-return.controller";
 
 const router = express.Router();
 
-// Route to borrow a book
+// borrow a book
 router.post("/borrow", borrowController.borrowBook);
 
-// Route to return a book
+// return a book
 router.post("/return", borrowController.returnBook);
+
+// get overdue borrow list
+router.get("/borrow/overdue", borrowController.getOverdueBorrowList);
 
 export const BorrowReturnRoutes = router;

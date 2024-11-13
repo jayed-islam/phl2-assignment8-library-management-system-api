@@ -25,11 +25,27 @@ const returnBook = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Book returned successfully"',
+    message: "Book returned successfully",
+  });
+});
+
+const getOverdueBorrowList = catchAsync(async (req: Request, res: Response) => {
+  const overdueList = await borrowService.getOverdueBorrowList();
+
+  const message = overdueList.length
+    ? "Overdue borrow list fetched"
+    : "No overdue books";
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message,
+    data: overdueList,
   });
 });
 
 export const borrowController = {
   borrowBook,
   returnBook,
+  getOverdueBorrowList,
 };
