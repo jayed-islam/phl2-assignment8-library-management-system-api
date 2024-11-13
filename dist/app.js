@@ -14,10 +14,10 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
     res.send({
-        Message: "Ph health care server..",
+        Message: "library management system server is running...",
     });
 });
-app.use("/api/v1", routes_1.default);
+app.use("/api", routes_1.default);
 app.use(globalErrorHandler_1.default);
 app.use((req, res, next) => {
     res.status(http_status_1.default.NOT_FOUND).json({

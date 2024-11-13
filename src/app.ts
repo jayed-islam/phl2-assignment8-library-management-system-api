@@ -11,11 +11,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req: Request, res: Response) => {
   res.send({
-    Message: "Ph health care server..",
+    Message: "library management system server is running...",
   });
 });
 
-app.use("/api/v1", router);
+app.use("/api", router);
 
 app.use(globalErrorHandler);
 

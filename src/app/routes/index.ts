@@ -1,17 +1,22 @@
 import express from "express";
-import { userRoutes } from "../modules/User/user.routes";
-import { AdminRoutes } from "../modules/Admin/admin.routes";
+import { BookRoutes } from "../modules/Book/book.routes";
+import { MemberRoutes } from "../modules/Member/member.routes";
+import { BorrowReturnRoutes } from "../modules/BorrowReturn/borrow-return.routes";
 
 const router = express.Router();
 
 const moduleRoutes = [
   {
-    path: "/user",
-    route: userRoutes,
+    path: "/books",
+    route: BookRoutes,
   },
   {
-    path: "/admin",
-    route: AdminRoutes,
+    path: "/members",
+    route: MemberRoutes,
+  },
+  {
+    path: "/",
+    route: BorrowReturnRoutes,
   },
 ];
 
